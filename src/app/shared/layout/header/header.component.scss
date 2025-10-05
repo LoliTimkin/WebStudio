@@ -18,6 +18,7 @@ header.header {
         align-items: center;
         flex-direction: column;
         text-decoration: none;
+        font-size: 16px;
       }
 
       a .logo-item {
@@ -27,7 +28,6 @@ header.header {
       a span {
         font-family: 'Jost', sans-serif;
         font-weight: 400;
-        font-size: 16px;
         color: $main-text-color;
 
         .logo-item-font {

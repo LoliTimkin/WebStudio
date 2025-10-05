@@ -1,9 +1,128 @@
-header.header {
-  padding: 40px 100px;
+@import "../../../../assets/styles/_variables";
+
+footer.footer {
+  padding-top: 40px;
+  padding-bottom: 54px;
+  background-color: #b9d5fd;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 
   .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 
+    .footer-top {
+      display: flex;
+      align-items: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      margin-bottom: 40px;
+
+      .logo {
+
+        a {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          text-decoration: none;
+          font-size: 16px;
+        }
+
+        a .logo-item {
+          display: block;
+        }
+
+        a span {
+          font-family: 'Jost', sans-serif;
+          font-weight: 400;
+          color: $main-text-color;
+
+          .logo-item-font {
+            font-family: 'Jost', sans-serif;
+            font-weight: 500;
+          }
+        }
+      }
+
+      nav {
+        margin-left: 40px;
+
+        ul {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          list-style: none;
+
+          li {
+            margin-right: 20px;
+
+            a {
+              color: $dark-blue-text-color;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+
+    }
+
+    .footer-items {
+      display: flex;
+
+      .footer-item {
+        display: flex;
+        flex-direction: column;
+
+        .footer-item-head {
+          font-weight: 500;
+          color: $main-text-color;
+          margin-bottom: 10px;
+        }
+
+        .footer-item-content {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 130%;
+          color: $dark-blue-text-color;
+          max-width: 253px;
+          margin-right: 60px;
+          margin-bottom: 10px;
+
+          a {
+            text-decoration: none !important;
+            color: inherit;
+          }
+
+          &:last-child {
+            display: flex;
+            align-items: center;
+
+            svg {
+              margin-right: 12px;
+            }
+          }
+        }
+
+        button {
+          border-radius: 5px;
+          border: none;
+          padding: 10px 20px;
+          width: 153px;
+          height: 36px;
+          background-color: $main-text-color;
+          box-sizing: border-box;
+          color: #fff;
+          font-weight: 500;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .copyright {
+      margin-top: 21px;
+      font-weight: 400;
+      color: $main-text-color
+    }
   }
 }
