@@ -1,0 +1,87 @@
+@import "../../../../assets/styles/_variables";
+
+header.header {
+  padding: 40px 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+
+      a {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-decoration: none;
+      }
+
+      a .logo-item {
+        display: block;
+      }
+
+      a span {
+        font-family: 'Jost', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: $main-text-color;
+
+        .logo-item-font {
+          font-family: 'Jost', sans-serif;
+          font-weight: 500;
+        }
+      }
+
+    }
+
+    .navbar {
+      margin-left: 100px;
+      margin-right: 227px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        list-style: none;
+
+        li {
+          margin-right: 30px;
+
+          a {
+            color: $dark-blue-text-color;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .phone {
+      margin-right: 141px;
+      a {
+        color: $main-text-color;
+        text-decoration: none;
+      }
+    }
+
+    .account {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      .account-icon {
+        margin-right: 7px;
+      }
+      .account-title {
+        color: $dark-blue-text-color;
+      }
+    }
+
+  }
+}
+
+
