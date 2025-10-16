@@ -7,3 +7,36 @@ html, body {
   max-width: $container-width;
   margin: 0 auto;
 }
+
+.input {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  border: 2px solid #709fdc;
+  border-radius: 3px;
+  padding: 17px 20px;
+  box-sizing: border-box;
+
+  placeholder {
+    color: #a8aba7;
+  }
+}
+
+.button {
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 15px 40px;
+  background: #709fdc;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  border: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+    background: #c5c5c5;
+  }
+}
