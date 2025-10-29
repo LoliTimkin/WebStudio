@@ -40,3 +40,9 @@ html, body {
     background: #c5c5c5;
   }
 }
+
+button.mat-menu-item {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  color: $dark-blue-text-color
+}

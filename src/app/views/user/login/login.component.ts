@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
 
   login(): void {
       if (this.loginForm.valid && this.loginForm.value.email
-        && this.loginForm.value.password && this.loginForm.value.rememberMe) {
-        this.authService.login(this.loginForm.value.email, this.loginForm.value.password, this.loginForm.value.rememberMe)
+        && this.loginForm.value.password) {
+        this.authService.login(this.loginForm.value.email, this.loginForm.value.password, !!this.loginForm.value.rememberMe)
           .subscribe({
             next: (data: LoginResponseType | DefaultResponseType) => {
               let error = null;
@@ -55,8 +55,8 @@ export class LoginComponent implements OnInit {
                 throw new Error(error)
               }
 
-              // set tokens
-
+              this.authService.setTokens(loginResponse.accessToken, loginResponse.refreshToken)
+              this.authService.userId = loginResponse.userId
               this._snackBar.open('Вы успешно авторизовались')
               this.router.navigate(['/'])
 
