@@ -32,25 +32,22 @@ export class HeaderComponent implements OnInit {
   logout(): void {
     this.authService.logout()
       .subscribe({
-      next:(data) => {
-        if (data.error) {
-          this._snackBar.open('Ошибка выхода из системы')
-          throw new Error(data.message)
-        }
-        this.authService.removeTokens()
-        this.authService.userId = null;
-        this._snackBar.open('Вы успешно вышли из системы')
-        this.router.navigate(['/'])
+      next:() => {
+        this.doLogout()
+
       },
-      error: (errorResponse: HttpErrorResponse) => {
-        if(errorResponse.error && errorResponse.error.message) {
-          this._snackBar.open(errorResponse.error.message)
-        } else {
-          this._snackBar.open(' Ошибка выхода из системы')
-        }
+      error: () => {
+        this.doLogout()
       }
     })
-
   }
+
+  doLogout(): void {
+    this.authService.removeTokens()
+    this.authService.userId = null;
+    this._snackBar.open('Вы успешно вышли из системы')
+    this.router.navigate(['/'])
+  }
+
 
 }

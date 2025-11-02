@@ -68,9 +68,7 @@ export class LoginComponent implements OnInit {
                 this._snackBar.open('Что-то пошло не так при поптыке авторизации')
               }
             }
-            }
-
-          )
+          })
       }
   }
 }

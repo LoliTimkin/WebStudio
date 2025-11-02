@@ -26,6 +26,11 @@ export class AuthService {
       {email, password, rememberMe})
   }
 
+  signup(name: string,email: string, password: string): Observable<LoginResponseType | DefaultResponseType> {
+    return this.http.post<LoginResponseType | DefaultResponseType>('http://localhost:3000/api/signup',
+      {name, email, password})
+  }
+
   logout(): Observable<DefaultResponseType> {
     const tokens = this.getTokens();
     if(tokens && tokens.refreshToken) {
