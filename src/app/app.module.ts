@@ -9,8 +9,9 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
 import { MainComponent } from './views/main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatMenuModule} from "@angular/material/menu";
+import {AuthInterceptor} from "./core/auth/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import {MatMenuModule} from "@angular/material/menu";
     HttpClientModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

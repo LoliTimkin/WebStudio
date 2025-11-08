@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable, Subject, throwError} from "rxjs";
 import {DefaultResponseType} from "../../../types/default-response.type";
 import {LoginResponseType} from "../../../types/login-response.type";
+import {UserType} from "../../../types/user.type";
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,16 @@ export class AuthService {
     throw throwError(() => 'Can not find token')
   }
 
+  refresh(): Observable<DefaultResponseType | LoginResponseType> {
+    const tokens = this.getTokens();
+    if(tokens && tokens.refreshToken) {
+      return this.http.post<DefaultResponseType | LoginResponseType>('http://localhost:3000/api/refresh', {
+        refreshToken: tokens.refreshToken
+      })
+    }
+    throw throwError(() => 'Can not use token' )
+  }
+
   public getIsLoginIn(): boolean {
     return this.isLogged
   }
@@ -78,6 +89,11 @@ export class AuthService {
 
   get userId(): string | null {
       return localStorage.getItem(this.userIdKey)
+  }
+
+  getUser(): Observable<DefaultResponseType | UserType> {
+    return this.http.get<DefaultResponseType | UserType>('http://localhost:3000/api/users', {withCredentials: true})
+
   }
 
 
