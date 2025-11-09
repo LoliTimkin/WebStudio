@@ -12,7 +12,6 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatMenuModule} from "@angular/material/menu";
 import {AuthInterceptor} from "./core/auth/auth.interceptor";
-import {SlickCarouselModule} from "ngx-slick-carousel";
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
     BrowserAnimationsModule,
     MatSnackBarModule,
     HttpClientModule,
-    MatMenuModule,
-    SlickCarouselModule
+    MatMenuModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
