@@ -12,15 +12,12 @@ export class MainComponent implements OnInit {
     {img: "assets/images/Banner ver. 2.png"},
     {img: "assets/images/Banner ver. 3.png"},
   ];
-  slideConfig = {"slidesToShow": 3, "slidesToScroll": 3};
-
-  addSlide() {
-    this.slides.push({img: "http://placehold.it/350x150/777777"})
-  }
-
-  removeSlide() {
-    this.slides.length = this.slides.length - 1;
-  }
+  slideConfig = {
+    "slidesToShow": 1,
+    "slidesToScroll": 1,
+    "arrows": true,
+    "dots": true,
+  };
 
   slickInit(e: any) {
     console.log('slick initialized');

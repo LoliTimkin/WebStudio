@@ -12,11 +12,8 @@
            <img src="{{ slide.img }}" alt="" width="100%">
          </div>
        </ngx-slick-carousel>
-
-       <button (click)="addSlide()">Add</button>
-       <button (click)="removeSlide()">Remove</button>
-       <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
-       <button (click)="slickModal.unslick()">unslick</button>
+       <button (click)= this.slickModal.slickPrev()>Prev</button>
+       <button (click)= this.slickModal.slickNext()>Next</button>
      </div>
    </div>
  </section>
