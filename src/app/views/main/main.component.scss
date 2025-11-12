@@ -1,0 +1,32 @@
+.main {
+  margin-bottom: 120px;
+
+  .container {
+    .promo
+    {
+      position: relative;
+      .carousel {
+         position: relative;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      button.next {
+        position: absolute;
+        right: 5px;
+      }
+
+      button.prev {
+        position: absolute;
+        left: 5px;
+      }
+    }
+  }
+}
