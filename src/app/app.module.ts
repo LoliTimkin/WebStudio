@@ -13,6 +13,12 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {MatMenuModule} from "@angular/material/menu";
 import {AuthInterceptor} from "./core/auth/auth.interceptor";
 import {SlickCarouselModule} from "ngx-slick-carousel";
+import {
+  DialogElementsComponent,
+  ModalDialogComponent
+} from './shared/modal-dialog/modal-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -20,7 +26,9 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    ModalDialogComponent,
+    DialogElementsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +37,8 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
     MatSnackBarModule,
     HttpClientModule,
     MatMenuModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatDialogModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
