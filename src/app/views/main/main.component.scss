@@ -11,22 +11,25 @@
 
       button {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        border: none;
-        background-color: transparent;
         cursor: pointer;
       }
 
       button.next {
-        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background-color: transparent;
         right: 5px;
       }
 
       button.prev {
-        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background-color: transparent;
         left: 5px;
       }
+
     }
   }
 }
