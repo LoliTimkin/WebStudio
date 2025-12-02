@@ -18,7 +18,9 @@ export class DialogElementsComponent {
   readonly dialog = inject(MatDialog);
 
   openDialog() {
-    this.dialog.open(ModalDialogComponent);
+    this.dialog.open(ModalDialogComponent, {
+      panelClass: 'custom-overlay-pane'
+    });
   }
 }
 

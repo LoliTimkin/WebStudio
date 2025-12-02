@@ -12,7 +12,7 @@ html, body {
   font-family: Montserrat, sans-serif;
   font-weight: 400;
   font-size: 14px;
-  border: 2px solid #709fdc;
+  border: 2px solid $main-text-color;
   border-radius: 3px;
   padding: 17px 20px;
   box-sizing: border-box;
@@ -55,4 +55,42 @@ button.mat-menu-item {
   top: 351px;
   left: 81px;
 }
+
+.cdk-overlay-pane.custom-overlay-pane {
+  width: 727px;
+  height: 489px;
+
+.mat-dialog-container {
+   padding: 86px;
+   text-align: center;
+   width: 727px;
+   height: 489px;
+
+   .mat-dialog-title {
+     font-family: Montserrat, sans-serif;
+     font-weight: 400;
+     font-size: 38px;
+     color: $main-text-color
+   }
+
+   .dialog-inputs {
+     .dialog-form-input {
+       min-width: 422px;
+       height: 53px;
+       margin-bottom: 5px;
+     }
+
+   }
+
+   .mat-dialog-actions {
+     justify-content: center;
+     padding: 0;
+     margin-top: 15px;
+     .button-dialog {
+       width: 422px;
+     }
+   }
+ }
+}
+
 

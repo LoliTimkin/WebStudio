@@ -19,6 +19,7 @@ import {
 } from './shared/modal-dialog/modal-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from "@angular/material/button";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {MatButtonModule} from "@angular/material/button";
     MatMenuModule,
     SlickCarouselModule,
     MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
