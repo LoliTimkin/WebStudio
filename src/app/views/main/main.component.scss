@@ -1,3 +1,6 @@
+@import "../../../assets/styles/_mixins.scss";
+@import "../../../assets/styles/_variables.scss";
+
 .main {
   margin-bottom: 120px;
 
@@ -30,6 +33,60 @@
         left: 5px;
       }
 
+    }
+
+    .services {
+      margin: 120px 0;
+
+      .services-title {
+        margin-bottom: 40px;
+        @include base-title;
+      }
+
+      .services-items {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 26px ;
+
+        .services-item {
+          display: flex;
+          flex-direction: column;
+          max-width: 291px;
+
+          .services-item-image {
+            margin-bottom: 15px;
+          }
+
+          .services-item-title {
+            font-family: 'MontserratBold', sans-serif;
+            font-size: 20px;
+            color: $main-text-color;
+            margin-bottom: 10px;
+          }
+
+          .services-item-description {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            line-height: 130%;
+            color: $dark-blue-text-color;
+            margin-bottom: 15px;
+            height: 90px;
+          }
+
+          .services-item-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .services-item-price {
+              font-family: 'MontserratSemiBold', sans-serif;
+              font-size: 20px;
+              color: $main-text-color
+            }
+          }
+        }
+
+      }
     }
   }
 }
