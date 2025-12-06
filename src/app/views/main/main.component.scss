@@ -88,5 +88,72 @@
 
       }
     }
+
+    .advantages {
+      margin-bottom: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .advantages-image {
+        margin-right: 68px;
+      }
+
+      .advantages-info {
+        display: flex;
+        flex-direction: column;
+
+        .advantages-title {
+          @include base-title;
+          margin-bottom: 20px;
+        }
+
+        .advantages-description {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 14px;
+          line-height: 130%;
+          color: #1e1a2b;
+          margin-bottom: 40px;
+          max-width: 633px;
+
+          span {
+            font-family: MontserratBold, sans-serif;
+          }
+        }
+
+        .advantages-items-title {
+          font-family: Lora, sans-serif;
+          color: $main-text-color;
+          margin-bottom: 20px;
+          font-size: 26px;
+        }
+
+        .advantages-items-list {
+
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-column-gap: 65px;
+          grid-row-gap: 20px;
+
+          .advantages-item {
+            display: flex;
+            max-width: 316px;
+            font-family: Montserrat, sans-serif;
+            font-size: 14px;
+            line-height: 130%;
+            color: #1e1a2b;
+
+            .advantages-item-text {
+              margin-left: 20px;
+              max-width: 256px;
+              span {
+                font-family: MontserratBold, sans-serif;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
