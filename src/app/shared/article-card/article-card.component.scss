@@ -1,0 +1,54 @@
+@import "../../../assets/styles/_variables";
+
+.article-card {
+  width: 292px;
+  height: 571px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  box-sizing: border-box;
+
+  .article-card-tag {
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .article-card-image {
+    margin-bottom: 15px;
+    img {
+
+    }
+  }
+
+  .article-card-title {
+    margin-bottom: 20px;
+    font-family: MontserratBold, sans-serif;
+    font-size: 20px;
+    line-height: 130%;
+    color: $main-text-color;
+  }
+
+  .article-card-description {
+    margin-bottom: 64px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: $dark-blue-text-color;
+  }
+
+  .article-card-link {
+    a {
+      font-family: Montserrat, sans-serif;
+      font-size: 16px;
+      line-height: 130%;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      color: $main-text-color;
+    }
+  }
+}

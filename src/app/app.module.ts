@@ -20,6 +20,7 @@ import {
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ArticleCardComponent } from './shared/article-card/article-card.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     FooterComponent,
     MainComponent,
     ModalDialogComponent,
-    DialogElementsComponent
+    DialogElementsComponent,
+    ArticleCardComponent
   ],
   imports: [
     BrowserModule,

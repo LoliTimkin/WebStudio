@@ -157,3 +157,34 @@
     }
   }
 }
+
+.popular-articles {
+  margin-bottom: 120px;
+
+  .container {
+    .popular-articles-title {
+      @include base-title;
+      margin-bottom: 40px;
+    }
+
+    .popular-articles-list {
+      margin-bottom: 40px;
+    }
+
+    .popular-articles-link {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+
+      a {
+        font-family: Montserrat, sans-serif;
+        font-size: 20px;
+        color: $main-text-color;
+        text-decoration: none;
+        margin-right: 14px;
+      }
+    }
+  }
+
+
+}
