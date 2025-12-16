@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticleService} from "../../shared/services/article.service";
+import {ArrayType} from "@angular/compiler";
+import {ArticleType} from "../../../types/article.type";
 
 @Component({
   selector: 'app-main',
@@ -35,9 +38,16 @@ export class MainComponent implements OnInit {
     console.log('beforeChange');
   }
 
-  constructor() { }
+  articles: ArticleType[] = [];
+
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
+    this.articleService.getPopularArticles()
+      .subscribe( (data: ArticleType[]) => {
+        this.articles = data
+        }
+      )
   }
 
 }

@@ -1,8 +1,8 @@
 @import "../../../assets/styles/_variables";
 
 .article-card {
-  width: 292px;
-  height: 571px;
+  max-width: 292px;
+  max-height: 571px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

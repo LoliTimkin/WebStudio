@@ -169,6 +169,10 @@
 
     .popular-articles-list {
       margin-bottom: 40px;
+      display: flex;
+      column-gap: 24px;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .popular-articles-link {
@@ -185,6 +189,7 @@
       }
     }
   }
+
 
 
 }

@@ -1,16 +1,15 @@
-<div class="article-card">
+<div class="article-card" *ngIf=article>
   <div class="article-card-tag">
     <img src="../../../assets/images/Tag.png" alt="article-tag-image">
   </div>
   <div class="article-card-image">
-    <img src="../../../assets/images/Article.png" alt="article-image">
+    <img src="http://localhost:3000/images/{{article.image}}" alt="article-image">
   </div>
   <div class="article-card-title">
-    6 сайтов для повышения  продуктивности
+    {{article.title}}
   </div>
   <div class="article-card-description">
-    Хотите проводить время в сети с пользой? Наша подборка из шести полезных, но малоизвестных сайтов увеличит вашу
-    продуктивность, поможет успевать больше в течение дня и всегда быть на шаг впереди!
+    {{article.description}}
   </div>
   <div class="article-card-link">
     <a href="#">
