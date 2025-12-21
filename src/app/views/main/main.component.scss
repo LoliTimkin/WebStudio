@@ -223,3 +223,43 @@
     }
   }
 }
+
+.contacts {
+  margin-bottom: 120px;
+  .container {
+    display: flex;
+    .contacts-map {
+
+    }
+    .contacts-info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 26px;
+
+      .contacts-info-title {
+        @include base-title;
+      }
+
+      .contacts-info-item {
+        margin-top: 20px;
+        width: 501px;
+
+        .contacts-info-item-name {
+          font-family: MontserratBold, sans-serif;
+          font-size: 20px;
+          color: $main-text-color;
+          margin-bottom: 10px;
+        }
+        .contacts-info-item-content {
+          font-family: Montserrat, sans-serif;
+          font-size: 14px;
+          line-height: 130%;
+          color: $dark-blue-text-color;
+          svg {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+}
