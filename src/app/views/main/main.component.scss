@@ -189,7 +189,37 @@
       }
     }
   }
+}
 
+.reviews {
+  margin-bottom: 120px;
 
+  .container {
+    .reviews-title {
+      @include base-title;
+      margin-bottom: 20px;
+    }
 
+    .reviews-carousel {
+      position: relative;
+      .reviews-arrow svg {
+        position: absolute;
+        cursor: pointer;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background-color: transparent;
+        color: #709fdc;
+      }
+
+      .reviews-arrow-next svg {
+        right: -7px;
+      }
+
+      .reviews-arrow-prev svg {
+        left: -20px;
+        transform: rotate(180deg);
+      }
+    }
+  }
 }

@@ -175,3 +175,58 @@
     </div>
   </div>
 </section>
+<section class="reviews">
+  <div class="container">
+    <div class="reviews-title">
+      Отзывы о нашей работе
+    </div>
+    <div class="reviews-carousel">
+      <ngx-slick-carousel class="carousel"
+                          #slickModal="slick-carousel"
+                          [config]="slideConfig2"
+                          (init)="slickInit($event)"
+                          (breakpoint)="breakpoint($event)"
+                          (afterChange)="afterChange($event)"
+                          (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem *ngFor="let review of reviews" class="slide">
+          <img src="{{ review.img }}" alt="" width="396px" height="267px">
+        </div>
+      </ngx-slick-carousel>
+      <div (click)=this.slickModal.slickPrev() class="reviews-arrow reviews-arrow-next">
+        <svg
+        width="10"
+        height="19"
+        viewBox="0 0 10 19"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <path
+          d="M2 1 L8 9.5 L2 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        </svg>
+        <div (click)=this.slickModal.slickNext() class="reviews-arrow reviews-arrow-prev">
+          <svg
+            width="10"
+            height="19"
+            viewBox="0 0 10 19"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 1 L8 9.5 L2 18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

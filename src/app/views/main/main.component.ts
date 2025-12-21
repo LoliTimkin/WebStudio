@@ -15,9 +15,23 @@ export class MainComponent implements OnInit {
     {img: "assets/images/Banner ver. 2.png"},
     {img: "assets/images/Banner ver. 3.png"},
   ];
+
+  reviews = [
+    {img: "assets/images/Review_1.png"},
+    {img: "assets/images/Review_2.png"},
+    {img: "assets/images/Review_3.png"},
+  ];
+
   slideConfig = {
     "slidesToShow": 1,
     "slidesToScroll": 1,
+    "arrows": true,
+    "dots": true,
+  };
+
+  slideConfig2 = {
+    "slidesToShow": 3,
+    "slidesToScroll": 3,
     "arrows": true,
     "dots": true,
   };
