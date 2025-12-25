@@ -1,25 +1,30 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, inject, Input} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {
+  MAT_DIALOG_DATA,
   MatDialog,
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import {MyDialogData} from "../../../types/mydialog-data.type";
 
 @Component({
   selector: 'dialog-elements',
   template: '<button class="button btn-main" matButton (click)="openDialog()">' +
-    'Подробнее</button>\n',
+    '{{data.buttonText}}</button>\n',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogElementsComponent {
+
+  @Input() data!: MyDialogData;
   readonly dialog = inject(MatDialog);
 
   openDialog() {
     this.dialog.open(ModalDialogComponent, {
-      panelClass: 'custom-overlay-pane'
+      panelClass: 'custom-overlay-pane',
+      data: this.data
     });
   }
 }
@@ -32,5 +37,7 @@ export class DialogElementsComponent {
 })
 
 export class ModalDialogComponent {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: MyDialogData) {
+  }
 
 }

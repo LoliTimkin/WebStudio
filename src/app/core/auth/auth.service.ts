@@ -92,7 +92,7 @@ export class AuthService {
   }
 
   getUser(): Observable<DefaultResponseType | UserType> {
-    return this.http.get<DefaultResponseType | UserType>('http://localhost:3000/api/users', {withCredentials: true})
+    return this.http.get<DefaultResponseType | UserType>('http://localhost:3000/api/users')
 
   }
 

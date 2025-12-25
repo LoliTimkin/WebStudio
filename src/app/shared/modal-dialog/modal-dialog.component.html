@@ -1,7 +1,7 @@
-<div mat-dialog-title>Заявка на услугу</div>
+<div mat-dialog-title>{{data.title}}</div>
 <mat-dialog-content>
   <div class="dialog-inputs">
-    <div class="">
+    <div class="" *ngIf="data.mode === 'service'">
       <input type="text" class="input dialog-form-input" placeholder="Копирайтинг">
     </div>
     <div class="">

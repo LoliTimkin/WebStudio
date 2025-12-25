@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "../../shared/services/article.service";
 import {ArrayType} from "@angular/compiler";
 import {ArticleType} from "../../../types/article.type";
+import {MyDialogData} from "../../../types/mydialog-data.type";
 
 @Component({
   selector: 'app-main',
@@ -53,6 +54,12 @@ export class MainComponent implements OnInit {
   }
 
   articles: ArticleType[] = [];
+
+  dataService: MyDialogData = {
+    title: "Заявка на услугу",
+    mode: 'service',
+    buttonText: 'Подробнее'
+  }
 
   constructor(private articleService: ArticleService) { }
 

@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = this.authService.getTokens();
     if (token && token.accessToken) {
       const authReq = req.clone({
-        headers: req.headers.set('x-access-token', token.accessToken)
+        headers: req.headers.set('x-auth', token.accessToken)
       })
 
       return next.handle(authReq)
@@ -58,7 +58,7 @@ export class AuthInterceptor implements HttpInterceptor {
           this.authService.setTokens(refreshResult.accessToken, refreshResult.refreshToken);
 
           const authReq = req.clone({
-            headers: req.headers.set('x-access-token', refreshResult.accessToken)
+            headers: req.headers.set('x-auth', refreshResult.accessToken)
           })
 
           return next.handle(authReq)
