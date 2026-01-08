@@ -56,6 +56,19 @@ button.mat-menu-item {
   left: 81px;
 }
 
+.btn-footer {
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  width: 153px;
+  height: 36px;
+  background-color: $main-text-color;
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+}
+
 .cdk-overlay-pane.custom-overlay-pane {
   width: 727px;
   height: 489px;

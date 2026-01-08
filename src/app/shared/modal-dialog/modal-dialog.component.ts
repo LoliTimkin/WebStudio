@@ -12,7 +12,7 @@ import {MyDialogData} from "../../../types/mydialog-data.type";
 
 @Component({
   selector: 'dialog-elements',
-  template: '<button class="button btn-main" matButton (click)="openDialog()">' +
+  template: '<button class={{data.style}} matButton (click)="openDialog()">' +
     '{{data.buttonText}}</button>\n',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

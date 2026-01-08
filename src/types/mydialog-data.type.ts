@@ -1,5 +1,7 @@
 export type MyDialogData = {
   title: string,
   mode: 'service' | 'call',
-  buttonText: string
+  buttonText: string,
+  style: string,
+  serviceName?: string
 }

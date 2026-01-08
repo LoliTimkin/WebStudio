@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ArticleService} from "../../shared/services/article.service";
-import {ArrayType} from "@angular/compiler";
+import {ArrayType, CssSelector} from "@angular/compiler";
 import {ArticleType} from "../../../types/article.type";
 import {MyDialogData} from "../../../types/mydialog-data.type";
 
@@ -10,6 +10,9 @@ import {MyDialogData} from "../../../types/mydialog-data.type";
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+
+  @ViewChild('serviceSite') serviceSelectedSite!: ElementRef
+  serviceSelectedSiteValue: string = "";
 
   slides = [
     {img: "assets/images/Banner ver. 1.png"},
@@ -55,10 +58,20 @@ export class MainComponent implements OnInit {
 
   articles: ArticleType[] = [];
 
+
   dataService: MyDialogData = {
     title: "Заявка на услугу",
     mode: 'service',
-    buttonText: 'Подробнее'
+    buttonText: 'Подробнее',
+    style: 'button btn-main',
+    serviceName: this.serviceSelectedSiteValue
+  }
+
+  dataService2: MyDialogData = {
+    title: "Заявка на услугу",
+    mode: 'service',
+    buttonText: 'Подробнее',
+    style: 'button services-item-button',
   }
 
   constructor(private articleService: ArticleService) { }
@@ -69,6 +82,11 @@ export class MainComponent implements OnInit {
         this.articles = data
         }
       )
+  }
+
+  ngAfterViewInit() {
+    this.serviceSelectedSiteValue = this.serviceSelectedSite.nativeElement.textContent;
+    console.log(this.serviceSelectedSiteValue);
   }
 
 }
