@@ -1,0 +1,59 @@
+@import "../../../../assets/styles/_mixins";
+@import "../../../../assets/styles/_variables";
+
+.blog {
+  padding-top: 80px;
+  padding-bottom: 120px;
+
+  .container {
+
+    .blog-title {
+      @include base-title;
+      margin-bottom: 40px;
+    }
+
+    .blog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+
+      .blog-applied-filters {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .blog-applied-filters-item {
+          border: 1.50px solid $main-text-color;
+          border-radius: 5px;
+          padding: 8px 13px 8px 20px;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 16px;
+          color: $main-text-color;
+          display: flex;
+          align-items: center;
+        }
+
+        a {
+          text-decoration: none;
+          cursor: pointer;
+          margin-left: 8px;
+          display: flex;
+        }
+      }
+
+      .blog-filter {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: $dark-blue-text-color;
+        display: flex;
+        align-items: center;
+
+        span {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
