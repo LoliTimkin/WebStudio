@@ -4,8 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BlogRoutingModule } from './blog-routing.module';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ArticleComponent } from './article/article.component';
-import {AppModule} from "../../app.module";
-import {ArticleCardComponent} from "../../shared/article-card/article-card.component";
+import {SharedModule} from "../../shared/shared.module";
 
 
 @NgModule({
@@ -15,7 +14,8 @@ import {ArticleCardComponent} from "../../shared/article-card/article-card.compo
   ],
     imports: [
         CommonModule,
-        BlogRoutingModule
+        BlogRoutingModule,
+        SharedModule
     ]
 })
 export class BlogModule { }

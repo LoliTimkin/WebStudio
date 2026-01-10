@@ -18,35 +18,33 @@ import {
   ModalDialogComponent
 } from './shared/modal-dialog/modal-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
-import { ArticleCardComponent } from './shared/article-card/article-card.component';
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LayoutComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainComponent,
-    ModalDialogComponent,
-    DialogElementsComponent,
-    ArticleCardComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSnackBarModule,
-    HttpClientModule,
-    MatMenuModule,
-    SlickCarouselModule,
-    MatDialogModule,
-    ReactiveFormsModule,
-  ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MainComponent,
+        ModalDialogComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSnackBarModule,
+        HttpClientModule,
+        MatMenuModule,
+        SlickCarouselModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        SharedModule
+    ],
+    providers: [
+        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    ],
+    exports: [
+
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
