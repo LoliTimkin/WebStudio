@@ -15,7 +15,9 @@ export class ArticleService {
     return this.http.get<ArticleType[]>('http://localhost:3000/api/articles/top')
   }
 
-  getArticles(): Observable<{count: number, pages: number, items: ArticleType[]}> {
-    return this.http.get<{count: number, pages: number, items: ArticleType[]}>('http://localhost:3000/api/articles')
+  getArticles(params?: any): Observable<{count: number, pages: number, items: ArticleType[]}> {
+    return this.http.get<{count: number, pages: number, items: ArticleType[]}>('http://localhost:3000/api/articles', {
+      params
+    })
   }
 }
