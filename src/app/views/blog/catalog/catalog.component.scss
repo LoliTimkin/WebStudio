@@ -54,46 +54,54 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-
+          padding: 12px 23px;
           span {
             margin-right: 8px;
           }
         }
 
         .blog-filter-body {
+          display: none;
           position: absolute;
           width: 100%;
           box-sizing: border-box;
+          background: #fff;
           padding: 12px 23px;
           border: 1.50px solid #b9d5fd;
           border-radius: 0 0 5px 5px;
           color: #bebebe;
+          z-index: 3;
 
           .blog-filter-body-item {
             cursor: pointer;
             margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &.active {
+              color: $dark-blue-text-color
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        &.open {
+          .blog-filter-head {
+            border-radius: 5px 5px 0 0;
+            background-color: #B9D5FD;
+            padding-right: 23px;
           }
 
-          &:last-child {
-            margin-bottom: 0;
-          }
-
-          &.active {
-            color: $dark-blue-text-color
+          .blog-filter-body {
+            display: block;
           }
         }
       }
 
-      &.open {
-        .blog-filter-head {
-          border-radius: 5px 5px 0 0;
-          background: #b9d5fd;
-        }
-
-        .blog-filter-body {
-          display: block;
-        }
-      }
 
     }
 

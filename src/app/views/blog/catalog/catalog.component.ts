@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ArticleType} from "../../../../types/article.type";
 import {ArticleService} from "../../../shared/services/article.service";
 import {ActiveParamsType} from "../../../../types/active-params.type";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-catalog',
@@ -12,14 +12,29 @@ import {Router} from "@angular/router";
 export class CatalogComponent implements OnInit {
 
   articles: ArticleType[] = [];
-  activeParams: ActiveParamsType = {types:[]};
+  activeParams: ActiveParamsType = {categories:[]};
   pages: number[] = [];
 
   constructor(private articleService: ArticleService,
+              private activatedRoute: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      //const activeParams: ActiveParamsType = {categories:[]};
+      if (params.hasOwnProperty('categories[]')) {
+        this.activeParams.categories = params['categories[]']
+      }
+      if (params.hasOwnProperty('page')) {
+        this.activeParams.page = params['page']
+      }
 
+      this.loadArticles()
+    })
+  }
+
+
+  loadArticles() {
     this.articleService.getArticles(this.activeParams)
       .subscribe(data => {
         this.pages = [];
@@ -29,7 +44,6 @@ export class CatalogComponent implements OnInit {
         this.articles = data.items;
       })
   }
-
 
   openPage(page: number) {
     this.activeParams.page = page;
