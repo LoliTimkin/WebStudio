@@ -20,4 +20,16 @@ export class ArticleService {
       params
     })
   }
+
+  getArticle(url: string): Observable<ArticleType> {
+    return this.http.get<ArticleType>('http://localhost:3000/api/articles/' + url)
+  }
+
+  getRelatedArticles(url: string): Observable<ArticleType[]> {
+    return this.http.get<ArticleType[]>('http://localhost:3000/api/articles/related/' + url)
+  }
+
+  getCategories(): Observable<{id: string, name: string, url: string}[]> {
+    return this.http.get<{id: string, name: string, url: string}[]>('http://localhost:3000/api/categories')
+  }
 }

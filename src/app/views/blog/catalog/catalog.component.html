@@ -5,12 +5,12 @@
     </div>
     <div class="blog-head">
       <div class="blog-applied-filters">
-        <div class="blog-applied-filters-item">
+        <div class="blog-applied-filters-item" *ngFor="let category of selectedCategories">
           <span>
-            Дизайн
+            {{category.name}}
           </span>
           <a>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg (click)="removeCategory(category)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_405_638)">
                 <line x1="1.93553" y1="2.65002" x2="13.9563" y2="14.6708" stroke="#709FDC" stroke-linecap="round"/>
                 <line x1="13.9236" y1="2.62984" x2="1.90278" y2="14.6507" stroke="#709FDC" stroke-linecap="round"/>
@@ -24,8 +24,8 @@
           </a>
         </div>
       </div>
-      <div class="blog-filter">
-        <div class="blog-filter-head">
+      <div class="blog-filter" [class.open] = "filterIsOpened">
+        <div class="blog-filter-head" (click) = "toogleFilter()">
           <span>
             Фильтр
           </span>
@@ -34,43 +34,14 @@
           </svg>
         </div>
         <div class="blog-filter-body">
-          <div class="blog-filter-body-item">
-            <span>Фриланс</span>
-            <a>
-              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.46395 10.176V-2.47955e-05H5.97595V10.176H4.46395ZM-5.37038e-05 5.80798V4.39198H10.4399V5.80798H-5.37038e-05Z" fill="#BEBEBE"/>
+          <div class="blog-filter-body-item" *ngFor="let category of categories" [class.active] = "isCategorySelected(category)">
+            <span>{{category.name}}</span>
+            <a (click)="toggleCategory(category, $event)">
+              <svg *ngIf="!isCategorySelected(category)" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.46395 10.176V-2.47955e-05H5.97595V10.176H4.46395ZM-5.37038e-05 5.80798V4.39198H10.4399V5.80798H-5.37038e-05Z" fill="#BEBEBE"/>
               </svg>
-            </a>
-          </div>
-          <div class="blog-filter-body-item active">
-            <span>Дизайн</span>
-            <a>
-              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.46395 10.176V-2.47955e-05H5.97595V10.176H4.46395ZM-5.37038e-05 5.80798V4.39198H10.4399V5.80798H-5.37038e-05Z" fill="#BEBEBE"/>
-              </svg>
-            </a>
-          </div>
-          <div class="blog-filter-body-item">
-            <span>SMM</span>
-            <a>
-              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.46395 10.176V-2.47955e-05H5.97595V10.176H4.46395ZM-5.37038e-05 5.80798V4.39198H10.4399V5.80798H-5.37038e-05Z" fill="#BEBEBE"/>
-              </svg>
-            </a>
-          </div>
-          <div class="blog-filter-body-item">
-            <span>Таргет</span>
-            <a>
-              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.46395 10.176V-2.47955e-05H5.97595V10.176H4.46395ZM-5.37038e-05 5.80798V4.39198H10.4399V5.80798H-5.37038e-05Z" fill="#BEBEBE"/>
-              </svg>
-            </a>
-        </div>
-          <div class="blog-filter-body-item">
-            <span>Копирайтинг</span>
-            <a>
-              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.46395 10.176V-2.47955e-05H5.97595V10.176H4.46395ZM-5.37038e-05 5.80798V4.39198H10.4399V5.80798H-5.37038e-05Z" fill="#BEBEBE"/>
+              <svg *ngIf="isCategorySelected(category)" width="7" height="2" viewBox="0 0 7 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.8651e-05 1.48799H6.28806V-1.45435e-05H5.8651e-05V1.48799Z" fill="#071739"/>
               </svg>
             </a>
           </div>

@@ -106,4 +106,21 @@ button.mat-menu-item {
  }
 }
 
+.article-content {
+  h3 {
+    font-family: MontserratBold, sans-serif;
+    font-size: 20px;
+    color: $main-text-color;
+    margin-top: 40px;
+  }
+
+  p {
+    margin: 0 0 20px 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    line-height: 130%;
+    color: $dark-blue-text-color;
+  }
+}
+
 
