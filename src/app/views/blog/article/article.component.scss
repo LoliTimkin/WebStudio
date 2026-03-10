@@ -98,5 +98,55 @@
 }
 
 .article-comments {
-  padding-top: 120px;
+  padding: 120px 0;
+
+  .container {
+
+    .article-comments-title {
+      margin-bottom: 40px;
+      @include base-title;
+    }
+
+    .article-comments-form {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+
+      textarea {
+        resize: none;
+        border: 1.50px solid $main-text-color;
+        border-radius: 3px;
+        padding: 20px;
+        width: 818px;
+        height: 248px;
+        box-sizing: border-box;
+
+        &::placeholder {
+          color: #a8aba7;
+        }
+      }
+
+      button {
+        width: 422px;
+        height: 51px;
+      }
+    }
+
+    .more-comments {
+      margin-top: 60px;
+      display: flex;
+      align-items: center;
+
+      .link-more-comments {
+        text-decoration: none;
+        font-family: MontserratBold, sans-serif;
+        font-size: 20px;
+        color: $main-text-color;
+      }
+
+      svg {
+        margin-left: 10px;
+      }
+    }
+  }
 }
