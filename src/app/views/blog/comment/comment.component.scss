@@ -1,0 +1,63 @@
+@import "../../../../assets/styles/_variables";
+
+
+.comment {
+
+  .comment-user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    svg {
+      margin-right: 26px;
+    }
+
+    .comment-user-info-data {
+
+      .comment-user-info-name {
+        font-family: MontserratSemiBold, sans-serif;
+        font-size: 16px;
+        color: $main-text-color;
+        margin-bottom: 10px;
+      }
+      .comment-user-info-date {
+        font-family: MontserratSemiBold, sans-serif;
+        font-size: 14px;
+        color: #bebebe;
+      }
+    }
+  }
+
+  .comment-text {
+    margin-bottom: 39px;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    line-height: 140%;
+    color: $dark-blue-text-color;
+  }
+
+  .comment-actions {
+    display: flex;
+    column-gap: 15px;
+    align-items: flex-start;
+
+    .comment-actions-like {
+      display: flex;
+      align-items: center;
+      column-gap: 3px;
+      cursor: pointer;
+    }
+
+    .comment-actions-dislike {
+      display: flex;
+      align-items: center;
+      column-gap: 3px;
+      cursor: pointer;
+    }
+
+    .comment-actions-reply {
+      cursor: pointer;
+    }
+  }
+
+}

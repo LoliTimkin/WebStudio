@@ -101,18 +101,41 @@
   padding: 120px 0;
 
   .container {
+    display: flex;
+    flex-direction: column;
 
     .article-comments-title {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       @include base-title;
+    }
+
+    .article-comments-link-if-no-login {
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      color: $dark-blue-text-color;
+
+      a {
+        text-decoration: none;
+        color: $main-text-color;
+        cursor: pointer;
+      }
+    }
+
+    .comment-to-do-first {
+      margin-bottom: 20px;
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      color: $dark-blue-text-color;
     }
 
     .article-comments-form {
       display: flex;
       flex-direction: column;
       row-gap: 20px;
+      margin-top: 20px;
 
       textarea {
+        margin-bottom: 20px;
         resize: none;
         border: 1.50px solid $main-text-color;
         border-radius: 3px;
@@ -132,10 +155,19 @@
       }
     }
 
+    .article-comments-list {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 40px;
+      margin-bottom: 60px;
+    }
+
     .more-comments {
       margin-top: 60px;
       display: flex;
       align-items: center;
+      cursor: pointer;
 
       .link-more-comments {
         text-decoration: none;
