@@ -32,8 +32,9 @@ export class CatalogComponent implements OnInit, OnDestroy {
       if (params.hasOwnProperty('page')) {
         this.activeParams.page = params['page']
       }
-      if (params.hasOwnProperty('categories[]')) {
-        this.activeParams.categories = params['categories[]']
+      if (params.hasOwnProperty('categories')) {
+        this.activeParams.categories = Array.isArray(params['categories'])
+          ? params['categories'] : [params['categories']];
       } else {
         this.activeParams.categories = []
       }
