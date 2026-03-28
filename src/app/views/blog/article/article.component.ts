@@ -46,6 +46,22 @@ export class ArticleComponent implements OnInit {
                  const {allCount, comments} = response
                  this.allCount = allCount
                  this.comments = comments
+
+                 this.commentService.getReactions(this.article!.id)
+                   .subscribe(reactions => {
+
+                     const map = new Map<string, 'like' | 'dislike'>();
+
+                     reactions.forEach(r => {
+                       map.set(r.comment, r.action);
+                     });
+
+                     // обогащаем комментарии
+                     this.comments.forEach(comment => {
+                       comment.userReaction = map.get(comment.id) || null;
+                     });
+                   });
+
                  this.lastComments = comments.slice(0, 3)
                })
            }

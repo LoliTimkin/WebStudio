@@ -7,5 +7,6 @@ export type CommentType = {
   user: {
     id: string,
     name: string
-  }
+  },
+  userReaction?: 'like' | 'dislike' | null
 }
