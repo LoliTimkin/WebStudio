@@ -69,6 +69,7 @@ export class ArticleComponent implements OnInit {
               const {allCount, comments} = response
               this.allCount = allCount
               this.comments = comments
+              this.lastComments = comments.slice(0, 3)
             })
         })
     }
