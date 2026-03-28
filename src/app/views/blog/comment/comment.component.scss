@@ -46,6 +46,14 @@
       align-items: center;
       column-gap: 3px;
       cursor: pointer;
+
+      &.active {
+        svg {
+            path {
+              stroke: $main-text-color;
+            }
+        }
+      }
     }
 
     .comment-actions-dislike {
@@ -53,6 +61,14 @@
       align-items: center;
       column-gap: 3px;
       cursor: pointer;
+
+      &.active {
+        svg {
+          path {
+            stroke: $main-text-color;
+          }
+        }
+      }
     }
 
     .comment-actions-reply {

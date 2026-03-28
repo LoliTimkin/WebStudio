@@ -23,6 +23,12 @@ export class CommentService {
     )
   }
 
+  setReaction(commentId: string, action: 'like' | 'dislike'): Observable<DefaultResponseType> {
+    return this.http.post<DefaultResponseType>('http://localhost:3000/api/comments/' + commentId + '/apply-action',
+      {action: action}
+    )
+  }
+
   getReactions(articleId: string): Observable<[{comment: string, action: 'like' | 'dislike'}]> {
     return this.http.get<[{comment: string, action: 'like' | 'dislike'}]>('http://localhost:3000/api/comments/article-comment-actions?articleId=' + articleId)
   }
