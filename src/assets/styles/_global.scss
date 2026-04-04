@@ -123,4 +123,29 @@ button.mat-menu-item {
   }
 }
 
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.slick-dots li button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: transparent;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.slick-dots li button:before {
+  content: '';
+}
+
+.slick-dots li.slick-active button {
+  background: white;
+}
 

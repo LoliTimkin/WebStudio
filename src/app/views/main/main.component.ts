@@ -37,7 +37,7 @@ export class MainComponent implements OnInit {
     "slidesToShow": 3,
     "slidesToScroll": 3,
     "arrows": true,
-    "dots": true,
+    "dots": false,
   };
 
   slickInit(e: any) {
