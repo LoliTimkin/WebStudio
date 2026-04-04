@@ -19,6 +19,7 @@ import {MyDialogData} from "../../../types/mydialog-data.type";
 export class DialogElementsComponent {
 
   @Input() data!: MyDialogData;
+  @Input() dataService!: string;
   readonly dialog = inject(MatDialog);
 
   openDialog() {

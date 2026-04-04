@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {ArticleService} from "../../shared/services/article.service";
 import {ArrayType, CssSelector} from "@angular/compiler";
 import {ArticleType} from "../../../types/article.type";
@@ -9,10 +9,10 @@ import {MyDialogData} from "../../../types/mydialog-data.type";
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, AfterViewInit{
 
-  @ViewChild('serviceSite') serviceSelectedSite!: ElementRef
-  serviceSelectedSiteValue: string = "";
+  //@ViewChildren('serviceSite') serviceSelectedSite!: QueryList<ElementRef>;
+  @Input()  index: number = 0;
 
   slides = [
     {img: "assets/images/Banner ver. 1.png"},
@@ -64,7 +64,7 @@ export class MainComponent implements OnInit {
     mode: 'service',
     buttonText: 'Подробнее',
     style: 'button btn-main',
-    serviceName: this.serviceSelectedSiteValue
+    serviceName: "Копирайтинг"
   }
 
   dataService2: MyDialogData = {
@@ -84,9 +84,14 @@ export class MainComponent implements OnInit {
       )
   }
 
+  getDialogData(serviceName: string): MyDialogData {
+    return {
+      ...this.dataService2,
+      serviceName
+    };
+  }
+
   ngAfterViewInit() {
-    this.serviceSelectedSiteValue = this.serviceSelectedSite.nativeElement.textContent;
-    console.log(this.serviceSelectedSiteValue);
   }
 
 }

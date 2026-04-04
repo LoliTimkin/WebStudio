@@ -47,14 +47,14 @@
           <div class="services-item-image">
             <img src="../../../assets/images/service_1.png" alt="service_1">
           </div>
-          <div class="services-item-title" #serviceSite>Создание сайтов</div>
+          <div class="services-item-title">Создание сайтов</div>
           <div class="services-item-description">В краткие сроки мы создадим качественный
             и самое главное продающий сайт для продвижения Вашего бизнеса!
           </div>
           <div class="services-item-info">
             <div class="services-item-price">От 7 500₽</div>
             <!--<button class="button services-item-button">Подробнее</button>-->
-              <dialog-elements [data]="dataService2"></dialog-elements>
+              <dialog-elements [data]="getDialogData('Создание сайтов')"></dialog-elements>
           </div>
         </div>
         <div class="services-item">
@@ -68,7 +68,7 @@
           <div class="services-item-info">
             <div class="services-item-price">От 3 500₽</div>
             <!--<button class="button services-item-button">Подробнее</button>-->
-            <dialog-elements [data]="dataService2" ></dialog-elements>
+            <dialog-elements [data]="getDialogData('Продвижение')"></dialog-elements>
           </div>
         </div>
         <div class="services-item">
@@ -82,7 +82,7 @@
           <div class="services-item-info">
             <div class="services-item-price">От 1 000₽</div>
             <!--  <button class="button services-item-button">Подробнее</button>-->
-            <dialog-elements [data]="dataService2" ></dialog-elements>
+            <dialog-elements [data]="getDialogData('Реклама')"></dialog-elements>
          </div>
        </div>
        <div class="services-item">
@@ -96,7 +96,7 @@
          <div class="services-item-info">
            <div class="services-item-price">От 750₽</div>
            <!--<button class="button services-item-button">Подробнее</button>-->
-           <dialog-elements [data]="dataService2" ></dialog-elements>
+           <dialog-elements [data]="getDialogData('Копирайтинг')"></dialog-elements>
         </div>
       </div>
     </div>
