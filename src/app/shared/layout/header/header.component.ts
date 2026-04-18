@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   user: string = 'Name'
   isLogged: boolean = false
-  activeItem: string = 'Услуги';
+  activeItem: string = '';
 
   constructor(private authService: AuthService,
               private _snackBar: MatSnackBar,

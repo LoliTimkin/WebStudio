@@ -3,6 +3,7 @@ import {ArticleService} from "../../shared/services/article.service";
 import {ArrayType, CssSelector} from "@angular/compiler";
 import {ArticleType} from "../../../types/article.type";
 import {MyDialogData} from "../../../types/mydialog-data.type";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-main',
@@ -74,7 +75,8 @@ export class MainComponent implements OnInit, AfterViewInit{
     style: 'button services-item-button',
   }
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.articleService.getPopularArticles()
@@ -92,6 +94,16 @@ export class MainComponent implements OnInit, AfterViewInit{
   }
 
   ngAfterViewInit() {
+    this.activatedRoute.fragment.subscribe(fragment => {
+      if (fragment) {
+        setTimeout(() => {
+          const element = document.getElementById(fragment);
+          if (element) {
+            element.scrollIntoView({behavior: 'smooth', block: 'start'});
+          }
+        })
+      }
+    })
   }
 
 }
