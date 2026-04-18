@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
 
   user: string = 'Name'
   isLogged: boolean = false
+  activeItem: string = 'Услуги';
 
   constructor(private authService: AuthService,
               private _snackBar: MatSnackBar,
@@ -55,7 +56,6 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-
   logout(): void {
     this.authService.logout()
       .subscribe({
@@ -76,5 +76,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/'])
   }
 
+
+  setActive(item: string) {
+    this.activeItem = item;
+  }
 
 }

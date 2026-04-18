@@ -19,11 +19,36 @@
     </div>
     <div class="navbar">
       <ul>
-        <li><a href="#">Услуги</a></li>
-        <li><a href="#">О нас</a></li>
-        <li><a routerLink="/blog">Статьи</a></li>
-        <li><a href="#">Отзывы</a></li>
-        <li><a href="#">Контакты</a></li>
+        <li><a routerLink="/"
+               [class.active]="activeItem === 'Услуги'"
+               (click)="setActive('Услуги')">
+                Услуги
+             </a>
+        </li>
+        <li><a routerLink="/"
+               [class.active]="activeItem === 'О нас'"
+               (click)="setActive('О нас')">
+                О нас
+             </a>
+        </li>
+        <li><a routerLink="/blog"
+               [class.active]="activeItem === 'Статьи'"
+               (click)="setActive('Статьи')">
+                Статьи
+            </a>
+        </li>
+        <li><a routerLink="/"
+               [class.active]="activeItem === 'Отзывы'"
+               (click)="setActive('Отзывы')">
+                Отзывы
+            </a>
+        </li>
+        <li><a routerLink="/"
+               [class.active]="activeItem === 'Контакты'"
+               (click)="setActive('Контакты')">
+                Контакты
+            </a>
+        </li>
       </ul>
     </div>
     <div class="phone">

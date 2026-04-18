@@ -52,9 +52,18 @@ header.header {
         li {
           margin-right: 30px;
 
+
           a {
-            color: $dark-blue-text-color;
             text-decoration: none;
+            color: $dark-blue-text-color;
+          }
+
+          a:hover {
+            color: $main-text-color;
+          }
+
+          a.active {
+            color: $main-text-color;
           }
         }
       }
