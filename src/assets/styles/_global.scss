@@ -3,6 +3,16 @@ html, body {
   padding: 0;
 }
 
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
 .container {
   max-width: $container-width;
   margin: 0 auto;
