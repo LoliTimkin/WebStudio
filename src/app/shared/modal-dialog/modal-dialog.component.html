@@ -1,7 +1,7 @@
-<div mat-dialog-title>{{data.title}}</div>
+<div mat-dialog-title [class.submitted-title]="isSubmitted">{{isSubmitted ? 'Спасибо за вашу заявку' : data.title}}</div>
 <mat-dialog-content>
-  <div class="dialog-inputs">
-    <div class="" *ngIf="data.mode === 'service'">
+  <div class="dialog-inputs" [formGroup]="requestForm" *ngIf="!isSubmitted">
+    <div class="" *ngIf="data.mode === 'order'">
       <input type="text" class="input dialog-form-input" placeholder="{{data.serviceName}}" [value]="data.serviceName">
       <!--<select name="fruits" id="fruits">
         <option value="apple">{{data.serviceName}}</option>
@@ -10,14 +10,32 @@
       </select>-->
     </div>
     <div class="">
-      <input type="text" class="input dialog-form-input" placeholder="Ваше имя">
+      <input type="text" class="input dialog-form-input" placeholder="Ваше имя"
+             formControlName="name"
+             [ngStyle]="{'border-color': requestForm.get('name')?.invalid
+           && (requestForm.get('name')?.dirty|| requestForm.get('name')?.touched) ? 'red' : '' }">
     </div>
     <div class="">
-      <input type="text" class="input dialog-form-input" placeholder="Ваш номер телефона">
+      <input type="text" class="input dialog-form-input" placeholder="Ваш номер телефона"
+             formControlName="phoneNumber"
+             [ngStyle]="{'border-color': requestForm.get('phoneNumber')?.invalid
+           && (requestForm.get('phoneNumber')?.dirty|| requestForm.get('phoneNumber')?.touched) ? 'red' : '' }">
     </div>
+  </div>
+  <div class="dialog-text" *ngIf="isSubmitted">
+    Мы свяжемся с вами при первой же возможности
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button class="button button-dialog" matButton mat-dialog-close>Оставить заявку</button>
+  <button class="button button-dialog" [disabled]="requestForm.invalid"
+          (click)="onSubmit()" *ngIf="!isSubmitted">
+    Оставить заявку
+  </button>
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+  <button class="button button-dialog-submitted" mat-dialog-close *ngIf="isSubmitted">
+    Окей
+  </button>
 </mat-dialog-actions>
 

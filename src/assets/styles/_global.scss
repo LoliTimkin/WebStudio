@@ -94,6 +94,10 @@ button.mat-menu-item {
      font-weight: 400;
      font-size: 38px;
      color: $main-text-color;
+
+     &.submitted-title {
+       margin-top: 69px;
+     }
    }
 
    .dialog-inputs {
@@ -103,15 +107,26 @@ button.mat-menu-item {
        margin-bottom: 5px;
        color: $main-text-color;
      }
-
    }
+
+  .dialog-text {
+    font-family: MontserratBold, sans-serif;
+    font-size: 14px;
+    color: #1e1a2b;
+    margin-bottom: 25px;
+  }
 
    .mat-dialog-actions {
      justify-content: center;
      padding: 0;
      margin-top: 15px;
+
      .button-dialog {
        width: 422px;
+     }
+
+     .button-dialog-submitted {
+       padding: 10px 20px;
      }
    }
  }
@@ -158,5 +173,13 @@ button.mat-menu-item {
 
 .slick-dots li.slick-active button {
   background: white;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px 16px;
+  width: 100%;
 }
 

@@ -62,7 +62,7 @@ export class MainComponent implements OnInit, AfterViewInit{
 
   dataService: MyDialogData = {
     title: "Заявка на услугу",
-    mode: 'service',
+    mode: 'order',
     buttonText: 'Подробнее',
     style: 'button btn-main',
     serviceName: "Копирайтинг"
@@ -70,7 +70,7 @@ export class MainComponent implements OnInit, AfterViewInit{
 
   dataService2: MyDialogData = {
     title: "Заявка на услугу",
-    mode: 'service',
+    mode: 'order',
     buttonText: 'Подробнее',
     style: 'button services-item-button',
   }

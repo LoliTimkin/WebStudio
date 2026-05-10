@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
 
   dataService: MyDialogData = {
     title: "Закажите бесплатную консультацию",
-    mode: 'call',
+    mode: 'consultation',
     buttonText: 'Перезвоните мне',
     style: 'button btn-footer'
   }
