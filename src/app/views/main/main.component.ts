@@ -14,6 +14,7 @@ export class MainComponent implements OnInit, AfterViewInit{
 
   //@ViewChildren('serviceSite') serviceSelectedSite!: QueryList<ElementRef>;
   @Input()  index: number = 0;
+  currentBanner: string = 'assets/images/Banner ver. 1.png';
 
   slides = [
     {img: "assets/images/Banner ver. 1.png"},
@@ -51,6 +52,7 @@ export class MainComponent implements OnInit, AfterViewInit{
 
   afterChange(e: any) {
     console.log('afterChange');
+    this.currentBanner = this.slides[e.currentSlide].img;
   }
 
   beforeChange(e: any) {
@@ -91,6 +93,35 @@ export class MainComponent implements OnInit, AfterViewInit{
       ...this.dataService2,
       serviceName
     };
+  }
+
+  getDialogDataIfSlick(banner: string): MyDialogData {
+    if (banner === 'assets/images/Banner ver. 1.png') {
+      const serviceName = "Продвижение";
+      return {
+        ...this.dataService,
+        serviceName
+      };
+    } else if (banner === 'assets/images/Banner ver. 2.png') {
+      const serviceName = "Копирайтинг";
+      return {
+        ...this.dataService,
+        serviceName
+      };
+    } else if (banner === 'assets/images/Banner ver. 3.png') {
+      const serviceName = "SMM";
+      return {
+        ...this.dataService,
+        serviceName
+      };
+    } else {
+      const serviceName = "Копирайтинг";
+      return {
+        ...this.dataService,
+        serviceName
+      };
+    }
+
   }
 
   ngAfterViewInit() {
