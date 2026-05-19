@@ -46,7 +46,8 @@ export class CommentComponent implements OnInit {
 
 
   sendComplaint() {
-    this._snackBar.open("Жалоба отправлена")
+    this._snackBar.open("Жалоба отправлена"
+    , "Закрыть", {duration: 5000})
   }
 
 }

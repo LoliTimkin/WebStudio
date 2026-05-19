@@ -17,10 +17,10 @@ export class ArticleComponent implements OnInit {
   article: ArticleType  | null = null;
   articlesRelated: ArticleType[] = [];
   allCount: number = 0;
-  comments: CommentType[] = [];
   isLogged: boolean = false;
   commentText: string = '';
   lastComments: CommentType[] = [];
+  offset: number = 0;
 
 
 
@@ -39,32 +39,7 @@ export class ArticleComponent implements OnInit {
        this.articleService.getArticle(url)
          .subscribe(data => {
            this.article = data
-
-           if(this.article) {
-             this.commentService.getComments(0, this.article.id)
-               .subscribe(response => {
-                 const {allCount, comments} = response
-                 this.allCount = allCount
-                 this.comments = comments
-
-                 this.commentService.getReactions(this.article!.id)
-                   .subscribe(reactions => {
-
-                     const map = new Map<string, 'like' | 'dislike'>();
-
-                     reactions.forEach(r => {
-                       map.set(r.comment, r.action);
-                     });
-
-                     // обогащаем комментарии
-                     this.comments.forEach(comment => {
-                       comment.userReaction = map.get(comment.id) || null;
-                     });
-                   });
-
-                 this.lastComments = comments.slice(0, 3)
-               })
-           }
+           this.onloadComments(0)
          })
 
        this.articleService.getRelatedArticles(url)
@@ -80,19 +55,46 @@ export class ArticleComponent implements OnInit {
       this.commentService.addComment(this.commentText, this.article!.id)
         .subscribe(() => {
           this.commentText = ''
-          this.commentService.getComments(0, this.article!.id)
-            .subscribe(response => {
-              const {allCount, comments} = response
-              this.allCount = allCount
-              this.comments = comments
-              this.lastComments = comments.slice(0, 3)
-            })
+          this.onloadComments(0)
         })
     }
   }
 
+  onloadComments(offset: number = 0) {
+
+    if(this.article) {
+      this.commentService.getComments(offset, this.article.id)
+        .subscribe(response => {
+          const {allCount, comments} = response
+          this.allCount = allCount
+
+          if(offset === 0) {
+            this.lastComments = comments.slice(0, 3);
+          } else {
+            this.lastComments = [...this.lastComments, ...comments];
+          }
+
+          console.log(allCount, this.lastComments )
+
+          this.commentService.getReactions(this.article!.id)
+            .subscribe(reactions => {
+
+              const map = new Map<string, 'like' | 'dislike'>();
+
+              reactions.forEach(r => {
+                map.set(r.comment, r.action);
+              });
+
+              // обогащаем комментарии
+              this.lastComments.forEach(comment => {
+                comment.userReaction = map.get(comment.id) || null;
+              });
+            });
+        })
+    }
+  }
   openMoreComments() {
-    const offset = 10
-    this.lastComments = this.comments.slice(0, this.lastComments.length + offset)
+    this.offset = this.lastComments.length
+    this.onloadComments(this.offset)
   }
 }
